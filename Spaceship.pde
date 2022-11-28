@@ -20,7 +20,7 @@ class Spaceship extends Floater  {
   public void setDirection(double d) {
     myPointDirection = d;
   }
-  pupublic void Hyperspace(double h) {
+  public void Hyperspace(double h) {
     myCenterX = myCenterY = h;
   }
 }
