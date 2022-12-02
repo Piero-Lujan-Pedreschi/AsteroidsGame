@@ -1,8 +1,8 @@
 class Spaceship extends Floater  {   
   public Spaceship() {
     corners = 5;
-    xCorners = new int[] {-5, 0, 5, 0, -5};
-    yCorners = new int[] {5, 1, 0, -1, -5};
+    xCorners = new int[] {-10, 0, 10, 0, -10};
+    yCorners = new int[] {10, 2, 0, -2, -10};
     myColor = color(255);
     myCenterX = myCenterY = 250;
     myXspeed = myYspeed = 0;
@@ -20,7 +20,68 @@ class Spaceship extends Floater  {
   public void setDirection(double d) {
     myPointDirection = d;
   }
-  public void Hyperspace(double h) {
-    myCenterX = myCenterY = h;
+  public void Hyperspace(double h, double i) {
+    myCenterX = i;
+    myCenterY = h;
   }
+  public void setX(double x) {
+    myCenterX = x;
+  }
+  public double getX() {
+    return myCenterX;
+  }
+  public void setY(double y) {
+    myCenterY = y;
+  }
+  public double getY() {
+    return myCenterY;
+  }
+}
+
+class Asteroid extends Floater{
+   protected double rotSpeed; //randomly + or -
+   public Asteroid(){ 
+     corners = 6;
+     xCorners = new int[] {-10, 2, 10, 9, -1, -8};
+     yCorners = new int[] {5, 7, 2, -6, -7, -2};
+     myCenterX = myCenterY = Math.random()* 550;
+     myPointDirection = 0;
+     myXspeed = myYspeed = 0;
+     rotSpeed = 0;
+   }
+   
+   public void setSpeed(double x) {
+     myXspeed = myYspeed = x;
+   }
+   public double getSpeed() {
+     return myXspeed;
+   }
+   public double getDirection() {
+     return myPointDirection;
+   }
+   public void setDirection(double d) {
+     myPointDirection = d;
+   }
+   public void setRotSpeed(double r) {
+     rotSpeed = r;
+   }
+   public double getRotSpeed() {
+     return rotSpeed;
+   }
+   public void setX(double x) {
+    myCenterX = x;
+   }
+   public double getX() {
+     return myCenterX;
+   }
+   public void setY(double y) {
+     myCenterY = y;
+   }
+   public double getY() {
+     return myCenterY;
+   }
+   public void move(){ 
+     turn(rotSpeed);     
+     super.move();
+   }
 }
