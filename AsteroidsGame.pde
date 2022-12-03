@@ -16,12 +16,12 @@ public void draw() {
   for(int i = 0; i < stars.length; i++) {
     stars[i].show();
   }
-  for(int i = 0; i < rocks.size(); i++) {
-    rocks.get(i).move();
-    rocks.get(i).show();
+  for(int j = 0; j < rocks.size(); j++) {
+    rocks.get(j).move();
+    rocks.get(j).show();
     float d = dist((float)iss.getX(), (float)iss.getY(), (float)rocks.get(i).getX(), (float)rocks.get(i).getY());
     if(d < 10)
-      rocks.remove(i);
+      rocks.remove(j);
   }
   
   iss.show();
