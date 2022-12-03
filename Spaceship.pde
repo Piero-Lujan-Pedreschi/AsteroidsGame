@@ -8,34 +8,6 @@ class Spaceship extends Floater  {
     myXspeed = myYspeed = 0;
     myPointDirection = 0;
   }
-  public void setSpeed(double x) {
-    myXspeed = myYspeed = x;
-  }
-  public double getSpeed() {
-    return myXspeed;
-  }
-  public double getDirection() {
-    return myPointDirection;
-  }
-  public void setDirection(double d) {
-    myPointDirection = d;
-  }
-  public void Hyperspace(double h, double i) {
-    myCenterX = i;
-    myCenterY = h;
-  }
-  public void setX(double x) {
-    myCenterX = x;
-  }
-  public double getX() {
-    return myCenterX;
-  }
-  public void setY(double y) {
-    myCenterY = y;
-  }
-  public double getY() {
-    return myCenterY;
-  }
 }
 
 class Asteroid extends Floater{
@@ -44,39 +16,18 @@ class Asteroid extends Floater{
      corners = 6;
      xCorners = new int[] {-10, 2, 10, 9, -1, -8};
      yCorners = new int[] {5, 7, 2, -6, -7, -2};
-     myCenterX = myCenterY = Math.random()* 550;
-     myPointDirection = 0;
-     myXspeed = myYspeed = 0;
-     rotSpeed = 0;
+     myCenterX = (int)(Math.random()* 300)+50;
+     myCenterY = (int)(Math.random()* 300)+50;
+     myPointDirection = (int)(Math.random()* 200)+50;
+     myXspeed = (int)(Math.random()*5)+1;
+     myYspeed = (int)(Math.random()*5)+1;
+     rotSpeed = (double)(Math.random()*5)-2;
    }
-   
-   public void setSpeed(double x) {
-     myXspeed = myYspeed = x;
-   }
-   public double getSpeed() {
-     return myXspeed;
-   }
-   public double getDirection() {
-     return myPointDirection;
-   }
-   public void setDirection(double d) {
-     myPointDirection = d;
-   }
-   public void setRotSpeed(double r) {
-     rotSpeed = r;
-   }
-   public double getRotSpeed() {
-     return rotSpeed;
-   }
-   public void setX(double x) {
-    myCenterX = x;
-   }
+ 
    public double getX() {
      return myCenterX;
    }
-   public void setY(double y) {
-     myCenterY = y;
-   }
+
    public double getY() {
      return myCenterY;
    }
