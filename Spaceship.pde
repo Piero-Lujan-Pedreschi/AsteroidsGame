@@ -11,7 +11,7 @@ class Spaceship extends Floater  {
 }
 
 class Asteroid extends Floater{
-   protected double rotSpeed; //randomly + or -
+   private double rotSpeed; //randomly + or -
    public Asteroid(){ 
      corners = 6;
      xCorners = new int[] {-10, 2, 10, 9, -1, -8};
