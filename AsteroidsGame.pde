@@ -12,7 +12,7 @@ public void setup() {
   for(int j = 0; j < 8; j++) {
     rocks.add(new Asteroid());
   }
-  
+  System.out.println(rocks);
 }
 public void draw() {
   background(0);
@@ -22,7 +22,7 @@ public void draw() {
   for(int j = 0; j < rocks.size(); j++) {
     rocks.get(j).move();
     rocks.get(j).show();
-    float d = dist((float)iss.getX(), (float)iss.getY(), (float)rocks.get(i).getX(), (float)rocks.get(i).getY());
+    float d = dist((float)iss.getX(), (float)iss.getY(), (float)rocks.get(j).getX(), (float)rocks.get(j).getY());
     if(d < 10)
       rocks.remove(j);
   }
