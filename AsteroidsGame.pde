@@ -9,6 +9,9 @@ public void setup() {
   for(int i = 0; i < stars.length; i++) {
     stars[i] = new Star();
   }
+  for(int j = 0; j < 8; j++) {
+    rocks.add(new Asteroid());
+  }
   
 }
 public void draw() {
