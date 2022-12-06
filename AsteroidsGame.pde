@@ -12,7 +12,6 @@ public void setup() {
   for(int j = 0; j < 8; j++) {
     rocks.add(new Asteroid());
   }
-  System.out.println(rocks);
 }
 public void draw() {
   background(0);
