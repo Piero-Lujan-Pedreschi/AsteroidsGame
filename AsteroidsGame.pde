@@ -1,6 +1,7 @@
 Star [] stars = new Star [100];
 Spaceship iss = new Spaceship();
 ArrayList <Asteroid> rocks = new ArrayList <Asteroid>();
+ArrayList <Bullet> shot = new ArrayList <Bullet>();
 boolean wIsPressed = false;
 boolean dIsPressed = false;
 
@@ -24,6 +25,17 @@ public void draw() {
     float d = dist((float)iss.getX(), (float)iss.getY(), (float)rocks.get(j).getX(), (float)rocks.get(j).getY());
     if(d < 10)
       rocks.remove(j);
+  }
+  for(int k =0; k < shot.size(); k++) {
+    shot.get(k).show();
+    shot.get(k).move();
+    shot.get(k).accelerate(6);
+    for(int l = 0; l < shot.size(); l++) {
+      float d = dist((float)shot.get(l).getX(), (float)shot.get(l).getY(), (float)rocks.get(l).getX(), (float)rocks.get(l).getY());
+    if(d < 10)
+      rocks.remove(l);
+      shot.remove(l);
+    }
   }
   
   iss.show();
@@ -51,6 +63,9 @@ public void keyPressed() {
     iss.accelerate(-.03);
     iss.setDirection(iss.getDirection());
   }
+  if(key == 'q') {
+    shot.add(new Bullet(iss));
+  }
   if(key == 'w') {
     wIsPressed = true;
   } else if (key == 'd') {
@@ -65,4 +80,3 @@ void keyReleased() {
     dIsPressed = false;
   }
 }
-
