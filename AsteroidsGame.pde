@@ -4,7 +4,7 @@ const NUM_STARS = 100;
 Star[] stars = new Star[NUM_STARS];
 Spaceship ship = new Spaceship();
 ArrayList<Asteroid> asteroids = new ArrayList<Asteroid>();
-ArrayList<Bullet> shot = new ArrayList<Bullet>();
+ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 boolean wIsPressed = false;
 boolean dIsPressed = false;
 
@@ -24,9 +24,7 @@ public void showStars() {
   }
 }
 
-public void draw() {
-  background(0);
-  showStars();
+public void showAsteroids() {
   for (int asteroid_idx = 0; asteroid_idx < asteroids.size(); asteroid_idx++) {
     asteroids.get(num_asteroid).move();
     asteroids.get(num_asteroid).show();
@@ -36,18 +34,27 @@ public void draw() {
       asteroid_idx--;
     }
   }
-  
-  for (int k = 0; k < shot.size(); k++) {
-    shot.get(k).show();
-    shot.get(k).move();
-    shot.get(k).accelerate(6);
-    for (int l = 0; l < shot.size(); l++) {
-      float d = dist((float)shot.get(l).getX(), (float)shot.get(l).getY(), (float)asteroids.get(l).getX(), (float)asteroids.get(l).getY());
+}
+
+public void showBullets() {
+  for (int bullet_idx = 0; bullet_idx < bullets.size(); bullet_idx++) {
+    bullets.get(bullet_idx).show();
+    bullets.get(bullet_idx).move();
+    bullets.get(bullet_idx).accelerate(6);
+    for (int l = 0; l < bullets.size(); l++) {
+      float d = dist((float)bullets.get(l).getX(), (float)bullets.get(l).getY(), (float)asteroids.get(l).getX(), (float)asteroids.get(l).getY());
     if (d < 10)
       asteroids.remove(l);
-      shot.remove(l);
+      bullets.remove(l);
     }
   }
+}
+
+public void draw() {
+  background(0);
+  showStars();
+  showAsteroids();
+  showBullets();
   
   ship.show();
   ship.move();
@@ -75,7 +82,7 @@ public void keyPressed() {
     ship.setDirection(ship.getDirection());
   }
   if (key == 'q') {
-    shot.add(new Bullet(ship));
+    bullets.add(new Bullet(ship));
   }
   if (key == 'w') {
     wIsPressed = true;
