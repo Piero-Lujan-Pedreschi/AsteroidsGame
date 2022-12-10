@@ -71,6 +71,8 @@ public void keyPressed() {
   
   if (key == 's') {
     ship.accelerate(-.5);
+    if((ship.getXspeed == 0) || (ship.getYspeed == 0))
+      ship.accelerate(0);
   }
   
   if (key == 'd') {
