@@ -64,7 +64,6 @@ public void draw() {
 }
 
 public void keyPressed() {
-  System.out.println(key);
   if (key == 'w') {
     ship.accelerate(.05);
   }
