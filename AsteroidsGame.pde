@@ -65,12 +65,12 @@ public void draw() {
 
 public void keyPressed() {
   if (key == 'w') {
-    ship.accelerate(.05);
+    ship.accelerate(.5);
     ship.move();
   }
   
   if (key == 's') {
-    ship.accelerate(-.05);
+    ship.accelerate(-.5);
   }
   
   if (key == 'd') {
