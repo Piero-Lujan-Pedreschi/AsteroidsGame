@@ -2,8 +2,8 @@ Star [] stars = new Star [100];
 Spaceship iss = new Spaceship();
 ArrayList <Asteroid> rocks = new ArrayList <Asteroid>();
 ArrayList <Bullet> shot = new ArrayList <Bullet>();
-boolean wIsPressed = false;
-boolean dIsPressed = false;
+//boolean wIsPressed = false;
+//boolean dIsPressed = false;
 
 public void setup() {
   size(500, 500);
@@ -71,17 +71,17 @@ public void keyPressed() {
   if(key == 'q') {
     shot.add(new Bullet(iss));
   }
-  if(key == 'w') {
-    wIsPressed = true;
-  } else if (key == 'd') {
-    dIsPressed = true;
-  }
+  //if(key == 'w') {
+    //wIsPressed = true;
+  //} else if (key == 'd') {
+    //dIsPressed = true;
+  //}
 }
 
-void keyReleased() {
-  if(key == 'w') {
-    wIsPressed = false;
-  } else if (key == 'd') {
-    dIsPressed = false;
-  }
-}
+//void keyReleased() {
+  //if(key == 'w') {
+    //wIsPressed = false;
+  //} else if (key == 'd') {
+    //dIsPressed = false;
+  //}
+//}
