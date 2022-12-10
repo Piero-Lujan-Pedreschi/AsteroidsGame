@@ -9,8 +9,8 @@ ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 
 public void setup() {
   size(500, 500);
-  for (int star_idx = 0; star_idx < NUM_STARS; i++) {
-    stars[i] = new Star();
+  for (int star_idx = 0; star_idx < NUM_STARS; star_idx++) {
+    stars[star_idx] = new Star();
   }
   for (int asteroid_idx = 0; asteroid_idx < MAX_ASTEROIDS; j++) {
     asteroids.add(new Asteroid());
@@ -18,7 +18,7 @@ public void setup() {
 }
 
 public void showStars() {
-  for (int star_idx = 0; star_idx < NUM_STARS; i++) {
+  for (int star_idx = 0; star_idx < NUM_STARS; star_idx++) {
     stars[num_star].show();
   }
 }
