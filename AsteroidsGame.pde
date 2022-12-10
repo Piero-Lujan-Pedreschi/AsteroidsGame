@@ -66,6 +66,7 @@ public void draw() {
 public void keyPressed() {
   if (key == 'w') {
     ship.accelerate(.05);
+    ship.move();
   }
   
   if (key == 's') {
