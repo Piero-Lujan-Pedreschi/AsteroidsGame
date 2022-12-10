@@ -1,12 +1,14 @@
 class Star  {
-  private int myX, myY, myS;
+  private int x_pos, y_pos, speed;
+  
   public Star() {
-    myX = (int)(Math.random()*500);
-    myY = (int)(Math.random()*500);
-    myS = 4;
+    x_pos = (int)(Math.random()*500);
+    y_pos = (int)(Math.random()*500);
+    speed = 4;
   }
+  
   public void show() {
     fill(255,250,134);
-    ellipse(myX, myY, myS, myS);
+    ellipse(x_pos, y_pos, speed, speed);
   } 
 }
