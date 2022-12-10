@@ -12,7 +12,7 @@ public void setup() {
   for (int star_idx = 0; star_idx < NUM_STARS; star_idx++) {
     stars[star_idx] = new Star();
   }
-  for (int asteroid_idx = 0; asteroid_idx < MAX_ASTEROIDS; j++) {
+  for (int asteroid_idx = 0; asteroid_idx < MAX_ASTEROIDS; asteroid_idx++) {
     asteroids.add(new Asteroid());
   }
 }
