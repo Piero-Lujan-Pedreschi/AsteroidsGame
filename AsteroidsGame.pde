@@ -1,4 +1,3 @@
-const SHIP_ACCELERATION = .05;
 const MAX_ASTEROIDS = 8;
 const NUM_STARS = 100;
 const TURNING_DEGREES = 5;
@@ -65,12 +64,13 @@ public void draw() {
 }
 
 public void keyPressed() {
+  System.out.println(key);
   if (key == 'w') {
-    ship.accelerate(SHIP_ACCELERATION);
+    ship.accelerate(.05);
   }
   
   if (key == 's') {
-    ship.accelerate(-1 * SHIP_ACCELERATION);
+    ship.accelerate(-.05);
   }
   
   if (key == 'd') {
