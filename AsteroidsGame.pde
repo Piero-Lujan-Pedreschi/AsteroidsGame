@@ -44,7 +44,7 @@ public void showBullets() {
     for (int asteroid_idx = 0; asteroid_idx < asteroids.size(); asteroid_idx++) {
       float distanceFromBulletToAsteroid = dist((float)bullets.get(bullet_idx).getX(), (float)bullets.get(bullet_idx).getY(), (float)asteroids.get(asteroid_idx).getX(), (float)asteroids.get(asteroid_idx).getY());
     
-      if (distanceFromBulletToAsteroid < 50) {
+      if (distanceFromBulletToAsteroid < 10) {
         bullets.remove(bullet_idx);
         asteroids.remove(asteroid_idx);
         bullet_idx--;
