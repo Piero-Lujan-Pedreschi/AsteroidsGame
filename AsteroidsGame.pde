@@ -81,8 +81,7 @@ public void keyPressed() {
   }
   
   if (key =='c') {
-    ship.setSpeed(0);
-    ship.Hyperspace((double)(Math.random()*450)+25, (double)(Math.random()*450)+25);
+    ship.Hyperspace();
   }
   
   if (key == 'q') {
