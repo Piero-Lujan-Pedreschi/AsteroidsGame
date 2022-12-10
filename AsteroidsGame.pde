@@ -1,12 +1,11 @@
 const MAX_ASTEROIDS = 8;
 const NUM_STARS = 100;
+const TURNING_DEGREES = 5;
 
 Star[] stars = new Star[NUM_STARS];
 Spaceship ship = new Spaceship();
 ArrayList<Asteroid> asteroids = new ArrayList<Asteroid>();
 ArrayList<Bullet> bullets = new ArrayList<Bullet>();
-boolean wIsPressed = false;
-boolean dIsPressed = false;
 
 public void setup() {
   size(500, 500);
@@ -41,11 +40,16 @@ public void showBullets() {
     bullets.get(bullet_idx).show();
     bullets.get(bullet_idx).move();
     bullets.get(bullet_idx).accelerate(6);
-    for (int l = 0; l < bullets.size(); l++) {
-      float d = dist((float)bullets.get(l).getX(), (float)bullets.get(l).getY(), (float)asteroids.get(l).getX(), (float)asteroids.get(l).getY());
-    if (d < 10)
-      asteroids.remove(l);
-      bullets.remove(l);
+    
+    for (int asteroid_idx = 0; asteroid_idx < asteroids.size(); asteroid_idx++) {
+      float distanceFromBulletToAsteroid = dist((float)bullets.get(bullet_idx).getX(), (float)bullets.get(bullet_idx).getY(), (float)asteroids.get(asteroid_idx).getX(), (float)asteroids.get(asteroid_idx).getY());
+    }
+    
+    if (distanceFromBulletToAsteroid < 10) {
+      bullets.remove(bullet_idx);
+      asteroids.remove(asteroid_idx);
+      bullet_idx--;
+      asteroid_idx--;
     }
   }
 }
@@ -55,46 +59,35 @@ public void draw() {
   showStars();
   showAsteroids();
   showBullets();
-  
   ship.show();
   ship.move();
-  if (wIsPressed == true) {
-    ship.accelerate(.03);
-    ship.turn(0);
-    ship.move();
-  }
-}
-public void keyPressed() { 
-  if (key =='c') {
-    ship.setSpeed(0);
-    ship.move();
-    ship.Hyperspace((double)(Math.random()*450)+25, (double)(Math.random()*450)+25);
-  }
-  if (key =='d') {
-    ship.turn(5);
-  }
-  if (key =='a') {
-    ship.turn(-5);
-  }
-  if (key =='s') {
-    ship.move();
-    ship.accelerate(-.03);
-    ship.setDirection(ship.getDirection());
-  }
-  if (key == 'q') {
-    bullets.add(new Bullet(ship));
-  }
-  if (key == 'w') {
-    wIsPressed = true;
-  } else if (key == 'd') {
-    dIsPressed = true;
-  }
 }
 
-void keyReleased() {
+public void keyPressed() {
   if (key == 'w') {
-    wIsPressed = false;
-  } else if (key == 'd') {
-    dIsPressed = false;
+    ship.move();
+    ship.accelerate(.03);
+  }
+  
+  if (key == 's') {
+    ship.move();
+    ship.accelerate(-.03);
+  }
+  
+  if (key == 'd') {
+    ship.turn(TURNING_DEGREES);
+  }
+  
+  if (key == 'a') {
+    ship.turn(-1 * TURNING_DEGREES);
+  }
+  
+  if (key =='c') {
+    ship.setSpeed(0);
+    ship.Hyperspace((double)(Math.random()*450)+25, (double)(Math.random()*450)+25);
+  }
+  
+  if (key == 'q') {
+    bullets.add(new Bullet(ship));
   }
 }
