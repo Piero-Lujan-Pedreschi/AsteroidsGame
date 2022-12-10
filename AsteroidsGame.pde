@@ -25,8 +25,8 @@ public void showStars() {
 
 public void showAsteroids() {
   for (int asteroid_idx = 0; asteroid_idx < asteroids.size(); asteroid_idx++) {
-    asteroids.get(num_asteroid).move();
-    asteroids.get(num_asteroid).show();
+    asteroids.get(asteroid_idx).move();
+    asteroids.get(asteroid_idx).show();
     float distanceFromShipToAsteroid = dist((float)ship.getX(), (float)ship.getY(), (float)asteroids.get(asteroid_idx).getX(), (float)asteroids.get(asteroid_idx).getY());
     if (distanceFromShipToAsteroid < 10) {
       asteroids.remove(asteroid_idx);
