@@ -58,7 +58,7 @@ public void keyPressed() {
     iss.turn(-5);
   }
   if(key =='s') {
-    iss.setSpeed(0);
+    //iss.setSpeed(0);
     iss.move();
     iss.accelerate(-.03);
     iss.setDirection(iss.getDirection());
