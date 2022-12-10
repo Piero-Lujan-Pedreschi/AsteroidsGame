@@ -19,7 +19,7 @@ public void setup() {
 
 public void showStars() {
   for (int star_idx = 0; star_idx < NUM_STARS; star_idx++) {
-    stars[num_star].show();
+    stars[star_idx].show();
   }
 }
 
